@@ -12,20 +12,21 @@ def main():
     target =random.randint(1, 100)    
     #print target
     guesses = []
-    
-    input = int(raw_input("> "))
-    guesses.append(input)
     while True:
-        if input == target:
-            print "Correct!"
-            break
-        if input > target:
-            print "Lower"
-        else:
-            print "Higher"
-            
-        input = int(raw_input("> "))
-        guesses.append(input)
+        try:                
+            input = int(raw_input("> "))
+            guesses.append(input)
+            if input == target:
+                print "Correct!"
+                break
+            if input > target:
+                print "Lower"
+            else:
+                print "Higher"                            
+        except ValueError:
+            print "That's not a number"
+        
+        
         
     print "That took you {} guesses".format( len(guesses) )
 
